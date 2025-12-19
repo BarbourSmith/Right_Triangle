@@ -1,13 +1,103 @@
 {
-    "atomType": "Molecule",
-    "x": 0,
-    "y": 0,
-    "uniqueID": "id-14",
-    "name": "Right_Triangle",
-    "topLevel": true,
-    "allAtoms": [],
-    "allConnectors": [],
-    "unitsKey": "MM",
-    "fileTypeVersion": 1,
-    "filetypeVersion": 1
+  "atomType": "Molecule",
+  "x": 0,
+  "y": 0,
+  "uniqueID": "id-14",
+  "name": "Right_Triangle",
+  "ioValues": [
+    {
+      "name": "Height",
+      "ioValue": 30,
+      "currentEquation": "30"
+    },
+    {
+      "name": "Thickness",
+      "ioValue": 10,
+      "currentEquation": "10"
+    },
+    {
+      "name": "Base",
+      "ioValue": 30
+    }
+  ],
+  "topLevel": true,
+  "allAtoms": [
+    {
+      "atomType": "Output",
+      "x": 0.98,
+      "y": 0.5,
+      "uniqueID": "id-15"
+    },
+    {
+      "atomType": "Code",
+      "x": 0.41335978835978837,
+      "y": 0.5376044568245125,
+      "uniqueID": "id-17",
+      "ioValues": [
+        {
+          "name": "base",
+          "ioValue": 30
+        },
+        {
+          "name": "height",
+          "ioValue": 30
+        },
+        {
+          "name": "thickness",
+          "ioValue": 10
+        }
+      ],
+      "codeVersion": 1,
+      "code": " \n      //Inputs:[base, height, thickness]\n      //This defines the molecules inputs and creates variables with the same names which can be referenced in the code\n    \n      \n      //We can also create a new shape from scratch\n      let createdRectangle = replicad.drawRectangle(5,7)\n      //This is the plane we are going to put our new shape on\n      const newPlane = new replicad.Plane().pivot(0, 'Y');\n      //And we extrude the shape to make it 3D\n      let createdShape = createdRectangle.sketchOnPlane(newPlane).extrude(height)\n\n      const triangle = replicad.draw([0, 0])\n              .lineTo([base/2, 0])\n              .lineTo([0, height])\n              .close()\n              .sketchOnPlane()\n              .extrude(thickness)\n      \n      //For our new geometry we need to define the tags, color, plane, etc\n      let shape2 = {\n          geometry: [triangle], \n          tags: [\"aTag\"],\n          color: '#A3CE5B',\n          plane: newPlane,\n          bom: []\n      }\n      \n      //Then we can return our created shape in just the same way\n      return shape2\n \n      \n      \n          /**\n          To Use the Code Atom, enter your inputs to the input list a.e Inputs:[shape, height]\n          If your input is connected to another atom with a replicad geometry you can access its geometry by looking up its ID in your library. a.e library[Input1].geometry[0] \n          Use any replicad available methods to modify your geometry. Learn more about all of the available methods at \n          https://replicad.xyz/docs/introapp/UserGuide.html \n          Return a replicad object that includes geometry, color, tags and plane. \n      \n      \n          Example Code Atom:\n      \n            Inputs:[shape, x];\n      \n            let finalShape = library[shape].geometry[0].clone.translate[x,0,0]\n      \n            return {geometry: finalShape, color: library[shape].color, plane: library[shape].plane, tags: library[shape].tags }\n      \n            - See more examples at _______ \n      \n      \n          */\n      "
+    },
+    {
+      "atomType": "Input",
+      "x": 0.025384615384615384,
+      "y": 0.15384615384615385,
+      "uniqueID": "id-22",
+      "name": "Base",
+      "type": "number"
+    },
+    {
+      "atomType": "Input",
+      "x": 0.025384615384615384,
+      "y": 0.3816155988857939,
+      "uniqueID": "id-25",
+      "name": "Height",
+      "type": "number"
+    },
+    {
+      "atomType": "Input",
+      "x": 0.025384615384615384,
+      "y": 0.6239554317548747,
+      "uniqueID": "id-27",
+      "name": "Thickness",
+      "type": "number"
+    }
+  ],
+  "allConnectors": [
+    {
+      "ap2Name": "number or geometry",
+      "ap1ID": "id-17",
+      "ap2ID": "id-15"
+    },
+    {
+      "ap2Name": "base",
+      "ap1ID": "id-22",
+      "ap2ID": "id-17"
+    },
+    {
+      "ap2Name": "height",
+      "ap1ID": "id-25",
+      "ap2ID": "id-17"
+    },
+    {
+      "ap2Name": "thickness",
+      "ap1ID": "id-27",
+      "ap2ID": "id-17"
+    }
+  ],
+  "unitsKey": "MM",
+  "fileTypeVersion": 1,
+  "filetypeVersion": 1
 }
