@@ -6,18 +6,19 @@
   "name": "Right_Triangle",
   "ioValues": [
     {
-      "name": "Height",
+      "name": "Base",
       "ioValue": 30,
       "currentEquation": "30"
     },
     {
-      "name": "Thickness",
-      "ioValue": 10,
-      "currentEquation": "10"
+      "name": "Height",
+      "ioValue": 40,
+      "currentEquation": "40"
     },
     {
-      "name": "Base",
-      "ioValue": 30
+      "name": "Thickness",
+      "ioValue": 3,
+      "currentEquation": "3"
     }
   ],
   "topLevel": true,
@@ -40,11 +41,11 @@
         },
         {
           "name": "height",
-          "ioValue": 30
+          "ioValue": 40
         },
         {
           "name": "thickness",
-          "ioValue": 10
+          "ioValue": 3
         }
       ],
       "codeVersion": 1,
@@ -61,7 +62,7 @@
     {
       "atomType": "Input",
       "x": 0.025384615384615384,
-      "y": 0.3816155988857939,
+      "y": 0.24615384615384617,
       "uniqueID": "id-25",
       "name": "Height",
       "type": "number"
@@ -69,7 +70,7 @@
     {
       "atomType": "Input",
       "x": 0.025384615384615384,
-      "y": 0.6239554317548747,
+      "y": 0.3384615384615385,
       "uniqueID": "id-27",
       "name": "Thickness",
       "type": "number"
